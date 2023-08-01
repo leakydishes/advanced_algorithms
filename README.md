@@ -1,4 +1,4 @@
-#Tic-Tac-Toe (DIP & OCP) & Minimax Algorithm
+## Tic-Tac-Toe (DIP & OCP) & Minimax Algorithm
 
 #### Using following Reference to create Open-Closed Principles (OCP) and Dependency Inversion Principles (DIP)
  ##### - https://docs.python.org/3/library/abc.html
@@ -31,7 +31,7 @@ Over-ridden methods in child/ Sub-Type class accept the same input/ output value
 ### UML Design
 ![UML_tick_tac_toe](https://github.com/leakydishes/advanced_algorithms/assets/79079577/c6ea8b91-32cf-472c-a983-32ea1ea894ab)
 
-##Reflection
+## Reflection
 
 ### As seen in the last game play, if the user doesn't select 'smart' paths the bot appears to also not choose the 'smart' path. 
 ### However when player selects 'smart' paths the bot also selects. 
