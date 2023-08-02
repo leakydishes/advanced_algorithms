@@ -1,4 +1,4 @@
-#Tic-Tac-Toe (DIP & OCP) & Minimax Algorithm
+# Tic-Tac-Toe (DIP & OCP) & Minimax Algorithm
 
 
 ### Using following Reference to create Open-Closed Principles (OCP) and Dependency Inversion Principles (DIP)
