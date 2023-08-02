@@ -1,9 +1,5 @@
 ## Testing Advanced Algorithms in Python
 
-#### Using following Reference
- ##### - https://docs.python.org/3/library/abc.html
-
-
 ### Aim of this repository 
 1. Understanding of the inner-working of these algorithms
 2. Help define thought-process when designing algorithms to communicate ideas effectively
