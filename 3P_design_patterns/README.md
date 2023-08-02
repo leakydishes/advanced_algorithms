@@ -1,8 +1,36 @@
 ## Tic-Tac-Toe (DIP & OCP) & Minimax Algorithm
 
-#### Using following Reference to create Open-Closed Principles (OCP) and Dependency Inversion Principles (DIP)
- ##### - https://docs.python.org/3/library/abc.html
- ##### - https://towardsdatascience.com/how-to-use-abstract-classes-in-python-d4d2ddc02e90
+#Learning Summary
+-	Design patterns which are reusable solutions to common programming problems
+-	Designing patterns provides a way to solve and maintain implementation by abstracting details.
+-	I explored various creational design patterns (Simple Factory, Factory Method, Abstract Factory, Singleton, and Façade Pattern). 
+-	Each creation design pattern has a specific best use of managing object creation.
+-	Additionally, I explored frameworks for games and incorporating minimax algorithm using Abstract Factory pattern. This allowed me to create families of objects without specifying concrete classes. 
+
+Simple Factory 
+-	A straightforward way to create multiple objects
+-	To decouple object creation processes from the main/ client code
+
+Factory Method
+-	Create objects, but don’t know exact type of object until runtime
+-	Subclasses to alter the object creation process
+
+Abstract Factory
+-	Create families of related or dependent objects without specifying their concrete classes
+
+Singleton
+-	Ensure a class has only one instance available to all clients/ main
+-	Caching, thread pools, registers
+
+Facade Pattern
+-	Complex set of classes or library
+-	To provide a simplified interface to client/ main
+-	Hides complexity and dependencies of the subsystem
+
+Observer:
+-	When changes to the state of one object should trigger updates to other objects
+-	One to many dependencies between objects
+-	State change of one object notifies and updates multiple observer objects
 
 
 ### Dependency Inversion Principles (DIP)
