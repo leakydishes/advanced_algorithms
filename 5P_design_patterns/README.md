@@ -27,11 +27,13 @@ c.	Path Reconstraction: If a meeting_point is found the code reconstructs the sh
 #### Test case: 1
 - Testing time output of both single BFS/ DFS and Bidiectional Search times
 
+##### Time Outputs
 ![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/08c50324-e9fc-4567-9686-7fa8c387c309)
 
 #### Test Case 2: Create a bipartite Graph
 - I used lucid chart first to create a bipartite Graph based on lecture notes and then implemented this.
 
+##### Lucid Chart Image
 ![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/8c1b58a8-5bc0-417c-bafc-88a87f139dfe)
 
 
