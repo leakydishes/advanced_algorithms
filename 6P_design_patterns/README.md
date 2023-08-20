@@ -6,9 +6,6 @@ Finding the shortest path between two nodes in a graph has two factors:
 #### Dijkstra Shortest Path:
 u and v in weight graph = Cost of path (sum of weights along that path)
 -	Node A, Node B (shortest path between nodes is sum of weights on path between A, B.
-  
-#### Dijkstra
-![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/e294932c-4bce-455e-a9de-7275f358cbb9)
 
 #### Dijkstra algorithm 
 d[v] = min(d[v],d[u] + edge Weight (u,v))
@@ -126,12 +123,9 @@ An algorithm to find the shortest path in a graph, where Bellman-Ford and Dijkst
 ### Algorithm
 ![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/324389a6-91da-4b73-a11f-d9c6dcb64373)
 
-
 ### Floyd-Warshall Algorithm Complexity
-- Running complexity is {O(n}^3)
+- Running complexity is O(n^3)
 - Not better than running Dijkstra n times
 - Simpler to implement and handle negative weights
 - Storage: store two n-by-n arrays and graph (original)
-
-![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/4f0471c8-2dd8-4d83-92a5-5ee4773a804c)
 
