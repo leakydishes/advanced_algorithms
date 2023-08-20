@@ -93,12 +93,15 @@ Overlapping Subproblems: The subproblems show up again and again
 	Fibonacci: Solve problem computing F(0) and F(1) .. F(2) .. F(n-1) … F(n)
 	Bellman-Ford: Solve problem d^{(0)}[v] … d^{(1)}[v] … d^{(n-1)}[v] … d^{(n)}[v]
 
+#### Algorithms
 ![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/4ee3aa1f-0007-427f-8fa1-badcd5053f7b)
 ![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/3566e67b-748b-4855-a020-61cec32dc5f2)
 
 #### Top-Down Approach:
 -	Recurse to solve smaller problems (memorisation)
--	Keep track of what small problems are already solved to prevent re-solving. 
+-	Keep track of what small problems are already solved to prevent re-solving.
+  
+#### Algorithm
 ![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/6a281acf-82fe-4572-85b0-65a2eaf6d2b4)
 
 
