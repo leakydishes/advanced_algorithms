@@ -1,15 +1,14 @@
 ## Graphs
 Finding the shortest path between two nodes in a graph has two factors:
 1.	If you have weights on the edges – normally non-negative w(u, v)
-2.	If you have no weights on the edges (determine using number of edges between the two noes)
+2.	If you have no weights on the edges (determine using number of edges between the two nodes)
 
 #### Dijkstra Shortest Path:
-u and v in weight graph = Cost of path (sum of weights along that path)
--	Node A, Node B (shortest path between nodes is sum of weights on path between A, B.
+u and v in weighted graph = Cost of path (sum of weights along that path)
+-	Node A, Node B (shortest path between nodes is sum of weights on path between A, B).
 
 #### Dijkstra algorithm 
 d[v] = min(d[v],d[u] + edge Weight (u,v))
-
 - Single-Source Shortest Path Algorithm
 - Selects one node (root) and build a search based on the selected node using greedy approach
 - When considering neighbours of u, do not consider neighbours that have already been explored (‘sure’ status)
@@ -23,8 +22,8 @@ To find the shortest path between a node to all other nodes:
 4.	Repeat analysis until all nodes have been explores
 
 #### Dijkstra Issues: 
-o	Negative weights – this form of Dijkstra cannot handle this.
-o	If weight are changed, Dijkstra must be re-run. 
+-	Negative weights – this form of Dijkstra cannot handle this.
+-	If weight are changed, Dijkstra must be re-run. 
 
 ![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/c78dad9f-9d13-41ff-a7a8-1659fdb34dd7)
 
@@ -32,12 +31,13 @@ o	If weight are changed, Dijkstra must be re-run.
 ![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/8744afdc-cd18-4929-b69d-b0516e686d72)
 
 ### Bellman-Ford (BF) algorithm 
--	A variant of Dijkstra that can handle negative weights – slower. It overestimates the length of the path from the starting node to all other nodes. 
--	Finds the shortest paths from a node to all other nodes in a weighted graph, even if it has negative weight edges. Negative weight cycle: Sum of edge weights are negative. No labelling of nodes ‘sure/unsure’
--	Select all nodes as neighbours when considering neighbours of u
--	It is the selection of nodes that are to be explored. 
-1. Greedy option – picking only one node during exploration
-2. Select nodes 1-by-1 a de-centralised algorithm (flexible in changing weights)
+- A variant of Dijkstra that can handle negative weights – slower. It overestimates the length of the path from the starting node to all other nodes. 
+- Finds the shortest paths from a node to all other nodes in a weighted graph, even if it has negative weight edges.
+- Negative weight cycle: Sum of edge weights are negative. No labelling of nodes ‘sure/unsure’.
+- Select all nodes as neighbours when considering neighbours of u.
+- It is the selection of nodes that are to be explored.
+- Greedy option – picking only one node during exploration
+- Select nodes 1-by-1 a de-centralised algorithm (flexible in changing weights)
 
 #### Algorithm
 ![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/8eb49d48-ac31-401e-b0b8-1fa409687434)
@@ -54,7 +54,7 @@ o	If weight are changed, Dijkstra must be re-run.
 
 ## Graphs Running Time Analysis
 -	Must keep track of ‘unsure’ nodes using array with operations
-Dijkstra algorithm: n(T(findMin) + T(removeMin)) + mT(updateKey)
+	- Dijkstra algorithm: n(T(findMin) + T(removeMin)) + mT(updateKey)
 1.	Select a node with minimum estimate of distance, findMin() operation
 2.	Remove node that is explored ‘sure’ marked, removeMin() operation
 3.	Update value d repeatedly, updateKey() operation
