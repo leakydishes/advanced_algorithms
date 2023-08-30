@@ -3,11 +3,28 @@
 ### Aim of module
 I explored unbounded and bounded (0/1 knapsack) problem, I big part of this week’s learning was solidifying how to check we are using Dynamic Programming and breaking down problems into sub-problems. Additionally, I learnt how to create a function for my tests to reduce code duplication. I am excited to work on more problems using LCS (Longest Common Subsequence) as I found this was tricky to implement. I am excited to explore both my recursive and DP climbing stairs solution with my lecturer. 
 
-
 #### Dynamic Programming:
 - Involves identifying optimal sub-structures and leveraging overlapping subproblems.
 - Implements a systematic way to extract substructures and build solutions.
 - Provides a bottom-up approach to building the final solution, storing subproblem solutions in a table.
+
+#### Climbing Stairs:
+- A problem where you can take 1, 2, or 3 steps at a time to reach the top.
+- Recursive solution based on Fibonacci sequence: step(n) = step(n-1) + step(n-2).
+- Dynamic programming bottom-up approach reduces complexity to O(1).
+
+## Test Case Time Complexity
+#### Possible ways to climb 20 steps
+- Recursive (Brute Force): 10946
+- Dynamic Programming (DP - Array): 10946
+
+#### Comparison
+- Brute Force Time: 0.006150 Seconds
+- Dynamic Programming (DP - Array): 0.000111 Seconds
+- The DP algorithm is much faster (by 0.006039 seconds) than the brute force recursion algorithm.
+- The time difference between the two is more significant the higher number of n (steps).
+- Even though DP is faster as it uses an Array it would be using more memory then the recursive approach.
+
 
 #### Longest Common Subsequence DP Formulation:
 - Focuses on finding the length of the longest common subsequence (LCS).
@@ -43,11 +60,6 @@ I explored unbounded and bounded (0/1 knapsack) problem, I big part of this week
 - Involves packing items with weights and values into a knapsack with a given capacity.
 - Two variants: unbounded (allows multiple copies) and 0/1 (one copy of each item).
 - Utilizes dynamic programming to solve, identifying optimal substructures and overlapping subproblems.
-
-#### Climbing Stairs:
-- A problem where you can take 1, 2, or 3 steps at a time to reach the top.
-- Recursive solution based on Fibonacci sequence: step(n) = step(n-1) + step(n-2).
-- Dynamic programming bottom-up approach reduces complexity to O(1).
 
 #### 0/1 Knapsack Problem Bottom-Up DP:
 - Solves the knapsack problem with a 0/1 constraint using a dynamic programming approach.
