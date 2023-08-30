@@ -1,18 +1,8 @@
 ## Bounded and Unbounded Knapsack
 
 ### Aim of module
-This week I explored the unbounded and bounded (0/1 knapsack) problem, I big part of this week’s learning was solidifying how to check we are using Dynamic Programming and breaking down problems into sub-problems. Additionally, I learnt how to create a function for my tests to reduce code duplication. I am excited to work on more problems using LCS (Longest Common Subsequence) as I found this was tricky to implement. I am excited to explore both my recursive and DP climbing stairs solution with my lecturer. 
+I explored unbounded and bounded (0/1 knapsack) problem, I big part of this week’s learning was solidifying how to check we are using Dynamic Programming and breaking down problems into sub-problems. Additionally, I learnt how to create a function for my tests to reduce code duplication. I am excited to work on more problems using LCS (Longest Common Subsequence) as I found this was tricky to implement. I am excited to explore both my recursive and DP climbing stairs solution with my lecturer. 
 
-#### Unbounded Knapsack Problem:
-- Solvable in O(nW) time, where n is the number of items and W is the capacity of the knapsack.
-- Utilizes dynamic programming to create a solution.
-- Uses a 1-dimensional table to break down the problem into smaller subproblems by reducing the knapsack size.
-
-#### Bounded Knapsack (0/1 Knapsack):
-- Differs from unbounded knapsack by allowing only one copy of each item to be used.
-- Uses a dynamic programming approach as well.
-- Cannot use the same subproblem as unbounded knapsack with a smaller knapsack.
-- Requires tracking which items have been used and which haven't.
 
 #### Dynamic Programming:
 - Involves identifying optimal sub-structures and leveraging overlapping subproblems.
@@ -24,6 +14,30 @@ This week I explored the unbounded and bounded (0/1 knapsack) problem, I big par
 - Uses a 2-dimensional table to break down the problem by decrementing the lengths of input sequences.
 - Solves for the length of the LCS in O(nm) time.
 - Can recover the LCS using the table after finding its length.
+
+##### LCS Algorithm - Matrix-based Approach (2D)
+- Creates a path of the length of longest common subsequence.
+- Then backtracks from bottom-right to the top left corner, to find all LCS.
+- If subset 1 (value) is in subset 2 (value) they are part of LCS.
+- If value is different we go up or left, depending on which cell has a higher number.
+- Creating a matrix c[i][j] represeting lengths of LCS X[i] and Y[j]
+
+#### Unbounded Knapsack Problem:
+- Solvable in O(nW) time, where n is the number of items and W is the capacity of the knapsack.
+- Utilizes dynamic programming to create a solution.
+- Uses a 1-dimensional table to break down the problem into smaller subproblems by reducing the knapsack size.
+
+##### Unbounded
+ ![unbounded_knapsack](https://github.com/leakydishes/advanced_algorithms/assets/79079577/a4158f97-da9d-4951-9eac-9e54b4e8e3ae)
+
+#### Bounded Knapsack (0/1 Knapsack):
+- Differs from unbounded knapsack by allowing only one copy of each item to be used.
+- Uses a dynamic programming approach as well.
+- Cannot use the same subproblem as unbounded knapsack with a smaller knapsack.
+- Requires tracking which items have been used and which haven't.
+
+##### Bounded (0/1 Knapsack)
+![bounded_knapsack](https://github.com/leakydishes/advanced_algorithms/assets/79079577/e2deb935-77a3-4492-8fbb-0cb3657a3962)
 
 #### Knapsack Problem:
 - Involves packing items with weights and values into a knapsack with a given capacity.
