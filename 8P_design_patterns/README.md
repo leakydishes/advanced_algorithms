@@ -65,8 +65,52 @@
 - Non-overlapping both Greedy and DP create similar results, Greedy is faster
 - Overlapping DP more successful then Greedy in finding optimal solution, minimal time difference
 
-### Prim’s Algorithm
-Time Comparison slowPrim and Prim Algorithm
+### Prim’s Algorithm O(mlog(n))
+- Prim's algorithm is a greedy algorithm used to find the Minimum Spanning Tree (MST) of a connected, undirected graph.
+- The MST is a subset of the edges of the graph that forms a tree and includes all the vertices while minimizing the total edge weight.
+-  Prim's algorithm starts with an initial vertex and grows the MST one vertex at a time by selecting the edge with the smallest weight that connects a vertex in the MST to a vertex outside the MST.
+
+##### The algorithm (Prims) starts by initializing a key (distance) and parent for each vertex in the graph.
+- Make each node store a value (key) k[x]
+- Key makes decision to include node or not in Minimum spanning tree.
+##### The key is initially set to positive infinity to represent that the vertices are not yet in the MST.
+- The parent is initially set to None.
+- Initialise values (to infinity) for all nodes except root.
+	- Store one more value for each vertex P[x] -> pointing to nearest node on minimum spanning tree.
+
+##### Setting the Key for the Starting Vertex:
+- The key of the starting vertex s is set to 0 to make it the first vertex in the MST.
+##### Empty MST/ Priority Queue:
+- An empty list MST is created to store the edges of the MST.
+- A priority_queue is initialized with the vertices of the graph.
+- The vertices are sorted based on their keys (initially all infinity), so the starting vertex s is at the top of the priority queue.
+
+##### Loop:
+- The algorithm enters a loop that continues until the priority queue is empty.
+- Each iteration of the loop, it extracts the vertex u with the smallest key from the priority queue.
+
+##### Adding Edges to MST:
+- If u has a parent (i.e., it's not the starting vertex), the edge (u.parent, u) is added to the MST.
+- The edge connects a vertex inside the MST to a vertex outside the MST.
+
+##### Updating Keys and Parents:
+- The algorithm then examines all neighbors v of vertex u and checks if the edge weight from u to v is smaller than the current key of v.
+	- If it is, the key of v is updated with the smaller weight, and the parent of v is set to u.
+  	- Grows the MST by considering the smallest-weight edges that connect the MST to the remaining vertices.
+##### Updating Priority Queue:
+- After updating the keys and parents, the priority queue is adjusted to reflect the changes.
+- priority_queue ensures that the vertex with the smallest key is always at the front.
+- priority_queue empty, the algorithm has constructed the MST, and it returns the list of edges in the MST.
+##### Similar to Dijkstra’s algorithm!
+- Differences:
+1. Keep track of p[v] in order to return a tree at the end
+- But Dijkstra’s can do that too, that’s not a big difference.
+2. Instead of d[v] which we update by
+	- d[v] = min( d[v], d[u] + w(u,v) )
+- we keep k[v] which we update by
+	- k[v] = min( k[v], w(u,v) )
+
+#### Time Comparison slowPrim and Prim Algorithm
 - Both algorithms find MST (A - C, A - B)
 - slowPrim is slower in finding MST then prim algorithm.
 - Prim algorithm is more efficient then slowPrim in this case, a larger graph would show a greater time distance. 
