@@ -37,10 +37,10 @@ $$
 ### Plot the various values of objective function
 ##### Different values of N on the objective function in the linear problem to see if change N impacted the optimal objective function value.
 - 4 values (12,000, 35,000, 50,000 and 70,000) each representing a constraint. 
-- The dashed line for teach represents a different objective function value and the optimal solution lies where this line reaches its max within the feasible region. 
-- Only N (12000) is seen in the feasible region. 
-- As N is increased there are more resources for X1 and X2.
+- The dashed line for teach represents a different objective function value and no optimal solutions in the feasible region. 
 
+### Result
+- But as there is no feasible region there are no feasible solutions to optimise.
 
 ### Gaussian elimination
 - In LU decomposition we want to decompose original into upper and lower triangular matrices,
