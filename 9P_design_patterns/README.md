@@ -1,134 +1,141 @@
-## Graphs
-Finding the shortest path between two nodes in a graph has two factors:
-1.	If you have weights on the edges – normally non-negative w(u, v)
-2.	If you have no weights on the edges (determine using number of edges between the two nodes)
+##  Linear Programming
+### To solve the LP (Linear Programming) problem using level curves
 
-#### Dijkstra Shortest Path:
-u and v in weighted graph = Cost of path (sum of weights along that path)
--	Node A, Node B (shortest path between nodes is sum of weights on path between A, B).
+- The aim of this LP problem is to Maximise while adhering to the constrains.
+  - To find the combination of X1 and X2 which it at max within the feasible region (coloured grey). 
 
-#### Dijkstra algorithm 
-d[v] = min(d[v],d[u] + edge Weight (u,v))
-- Single-Source Shortest Path Algorithm
-- Selects one node (root) and build a search based on the selected node using greedy approach
-- When considering neighbours of u, do not consider neighbours that have already been explored (‘sure’ status)
+1. Plot the level curves for the objective function
+2. Identity the feasible region based on the given constraints
+3. Find the optimal solution within the feasible region
 
-To find the shortest path between a node to all other nodes:
--	Each node stores a table with length of the shortest path from that node to all other nodes in the graph. 
--	Shortest path (cost) and map to traverse the shortest path. 
-1.	Pick a node with smallest value in matrix d, labelled ‘I’m not sure yet’ status (smallest estimate path to current node). 
-2.	Update the neighbours of u
-3.	Mark current node u as explored ‘sure’, other nodes update based on distance (u with min d[u])
-4.	Repeat analysis until all nodes have been explores
+- I define the ranges for X1 and X2 to create an evenly spaced sample within range 500
+- I than creates equations for the constraint lines (X1, X2, X3)
+- I plot these constraints on the graph with X1(x-axis) and X2(y-axis)
 
-#### Dijkstra Issues: 
--	Negative weights – this form of Dijkstra cannot handle this.
--	If weight are changed, Dijkstra must be re-run. 
+#### The objective function 4X1 + 5X2 is than plotted with level curves (dashed lines).
+- Each level curve represented by dash line corresponds to a value of the objective function.
+- The feasible region is the shaded areas where all constrains are satisfied, any point of this region represents a combination of  and 
+- The level curves (dashed lines) are the objective function values at different levels, the higher the level the greater the objective function values.
+- The optimal solution is the point where the feasible region and highest-level curve touches/ intersects. 
 
-![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/c78dad9f-9d13-41ff-a7a8-1659fdb34dd7)
+### Optimal solution: 
+- It is in the feasible region near 20 and 30 ( ) and between 40 and 60 
+- The feasible region is bounded by constraints 
 
-### Dijkstra Step-by-Step Iteration
-![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/8744afdc-cd18-4929-b69d-b0516e686d72)
-
-### Bellman-Ford (BF) algorithm 
-- A variant of Dijkstra that can handle negative weights – slower. It overestimates the length of the path from the starting node to all other nodes. 
-- Finds the shortest paths from a node to all other nodes in a weighted graph, even if it has negative weight edges.
-- Negative weight cycle: Sum of edge weights are negative. No labelling of nodes ‘sure/unsure’.
-- Select all nodes as neighbours when considering neighbours of u.
-- It is the selection of nodes that are to be explored.
-- Greedy option – picking only one node during exploration
-- Select nodes 1-by-1 a de-centralised algorithm (flexible in changing weights)
-
-#### Algorithm
-![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/8eb49d48-ac31-401e-b0b8-1fa409687434)
-
-### Bellman-Ford Step-by-Step Iteration
-![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/c857eeb4-e9fe-4d36-8f7d-e4c08eb1f70c)
+$$
+\begin{eqnarray}
+\textrm{max } && 4X_1 +  5X_2 \\
+\textrm{subject to } && 2X_1  + 3X_2 \leq 120 \\
+&& 4 X_1 + 3 X_2 \leq 140 \\
+&& X_1 + X_2 \geq 80 \\
+&& X_1 \geq 0 \\
+&& X_2 \geq 0
+\end{eqnarray}
+$$
 
 
-#### Bellman Ford Modify Algorithm, detect if there are any negative cycles
--	Run (n + 1 or n + 2) and see if results distance change if they do than exit Bellman Ford.
--	BF can detect negative cycles in graph by observing changes in the estimated distance during the relaxation process. 
--	Negative cycle: cycle in which the sum of the edge weights along the cycle is negative. 
--	IF BF algorithm detects a negative cycle there is no well-defined shortest path since you can keep going and going and going around the cycle and continually decrease the path length. 
-
-## Graphs Running Time Analysis
--	Must keep track of ‘unsure’ nodes using array with operations
-	- Dijkstra algorithm: n(T(findMin) + T(removeMin)) + mT(updateKey)
-1.	Select a node with minimum estimate of distance, findMin() operation
-2.	Remove node that is explored ‘sure’ marked, removeMin() operation
-3.	Update value d repeatedly, updateKey() operation
-
-##### Heap (data structure) in Dijkstra:
-Dijkstra algorithm: n(T(O(1)) + T(O(log(n)) + mT(O(1))
-
-##### Arrays in Dijkstra:
-Dijkstra algorithm: n(T(O(n)) + T(O(n))) + mT(O(1))
-
-##### RB Tree in Dijkstra:
-Dijkstra algorithm: n(T(O(log(n)) + T(O(log(n))) + mT(O(log(n))
-
-##### Bellman-Ford Algorithm O(m x n)
-* Analyses each edge m, at least n-1 times.
-
-## Dynamic Programming (DP)
-Optimal Substructure: Optimal solutions to sub-problems are sub=solutions to the optimal solution of the original problem. Bottom- Up or Top-Down Approach
-Overlapping Subproblems: The subproblems show up again and again
--	An algorithm design paradigm, used for solving optimisation problems.
-1.	Bellman-Ford Algorithm is a problem-solving strategy – Dynamic Programming (DP)
--	Solution to smaller sub-problem: shortest path to node i relies on the shortest path to node i – 1
-
-2.	Fibonacci Numbers (represent a sequence of numbers with the property that the sum of two consecutive numbers in the sequence formulates the next number in the sequence. 
--	Solution to smaller sub-problem: F(i) we can compute it from F(i-1)
-
-![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/12927a7f-99ef-4c7c-8040-9d507860b28d)
+### Plot the various values of objective function
+##### Different values of N on the objective function in the linear problem to see if change N impacted the optimal objective function value.
+- 4 values (12,000, 35,000, 50,000 and 70,000) each representing a constraint. 
+- The dashed line for teach represents a different objective function value and the optimal solution lies where this line reaches its max within the feasible region. 
+- Only N (12000) is seen in the feasible region. 
+- As N is increased there are more resources for X1 and X2.
 
 
-### Designing Algorithm for DP:
--	Keep a table of solutions to the smaller problems
--	Use the solutions in the table to solve bigger problems
--	At the end we use information we have collected along the way to find the solution to whole problem. 
+### Gaussian elimination
+- In LU decomposition we want to decompose original into upper and lower triangular matrices,
+##### A = LU,
+- A is original matrix we want to decompose
+- L is lower triangular matrix (we assume it has 1-s in diagonal)
+- U is upper triangular matrix
 
-#### Bottom-up Approach:
-	Fibonacci: Solve problem computing F(0) and F(1) .. F(2) .. F(n-1) … F(n)
-	Bellman-Ford: Solve problem d^{(0)}[v] … d^{(1)}[v] … d^{(n-1)}[v] … d^{(n)}[v]
-
-#### Algorithms
-![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/4ee3aa1f-0007-427f-8fa1-badcd5053f7b)
-![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/3566e67b-748b-4855-a020-61cec32dc5f2)
-
-#### Top-Down Approach:
--	Recurse to solve smaller problems (memorisation)
--	Keep track of what small problems are already solved to prevent re-solving.
-  
-#### Algorithm
-![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/6a281acf-82fe-4572-85b0-65a2eaf6d2b4)
+### Gaussian elimination allows three types of operations
+1. Swapping two rows
+2. Adding multiple of one row to other
+3. Multiplying a row with a nonzero number
 
 
-### Floyd-Warshall 
-D^{(k)}[u,\ v] =D(k-1)[u,v]
-- All-Pairs Shortest Paths (ASPS)
-- The shortest path from u to v for all pairs (u, v)  of vertices in the graph
-- Find the shortest path between any pair of nodes in the graph.
+### Systems of linear Equations
+LU Decomposition of a matrix
 
-##### Issue Bellman-ford: for n times has a time complexity
-- For all s in G (graph), Run Bellman-Ford on G starting at S. O(n\bullet\ nm)\ =\ O(n^2m)
-Floyd-Warshall Algorithm
-An algorithm to find the shortest path in a graph, where Bellman-Ford and Dijkstra Algorithms are single-source, shortest path algorithms, Floyd-Warshall computes shortest distance between every pair of vertices in the input graph. 
--	Provides the distance between vertices in a resulting matrix
--	Dependent on the number of vertices in a graph.
+A set of values for x1, x2, ... xn, that satisfy all of the above equations simultaneously is said to be a solution to these equations. Case where we have n equations and n unknowns.
 
-### Floyd-Warshall Algorithm
-An algorithm to find the shortest path in a graph, where Bellman-Ford and Dijkstra Algorithms are single-source, shortest path algorithms, Floyd-Warshall computes shortest distance between every pair of vertices in the input graph. 
--	Provides the distance between vertices in a resulting matrix
--	Dependent on the number of vertices in a graph.
-  
-### Algorithm
-![image](https://github.com/leakydishes/advanced_algorithms/assets/79079577/324389a6-91da-4b73-a11f-d9c6dcb64373)
+#### Equations in matrix-vector Ax = b
+- A is non-singular, possess an inverse
+#####*Can be computationally intensive/ numerical stability.
+- Use LUP-Decomposition instead!
 
-### Floyd-Warshall Algorithm Complexity
-- Running complexity is O(n^3)
-- Not better than running Dijkstra n times
-- Simpler to implement and handle negative weights
-- Storage: store two n-by-n arrays and graph (original)
+#### LU Decomposition
+- Inverse of a matrix can only be computed for a full-Rank matrix.
+- x is the vector, finding whose value is the goal!
+- Find two n x n matrices, L and U such,
+- L is lower triangular matrix
+- U is upper triangular matrix
 
+### Steps
+- Aim is to decompose the original matrix (A) into two triangular matrices, simplifying the process of solving a linear system.
+- I used forward and backward substitution in that order as this is the most common approach.
+
+##### Rewrite linear system,
+- Define y=Ux
+##### Solve following lower-triangular system first
+-*Unknown y, process of Forward substitution
+##### Solve upper-triangular system
+- *Unknown x, process of Backward substitution
+
+### lu_decomposition(A)
+A = LU where L is lower and U is upper.
+- Takes a square matrix A as input
+- Initialises matrices (L) lower triangular and (U) upper triangular of the same size as A
+- The function than performs LU decomposition of the matrix A, factors the A into a lower triangular matrix (L) and upper triangular matrix (U)
+- Returns L and U
+
+### back_substitution(U, y)
+Ly = b
+- Takes the lower (L) and a vector b (input)
+- Performs forward substitution to solve the equation (Ly = b) for y where L is the lower triangular matrix.
+- Iterates through each row of L and calculates the corresponding element of y using the values of L and already calculated elements of y.
+- Returns the results of y
+
+### forward_substitution(L, b)
+Ux = y
+- Takes the upper triangular matrix U and vector y as input
+- Performs back substitution to solve the equation (Ux = y) for x where U is an upper triangular matrix. 
+- Iterates U (each row) in reverse order and calculates the corresponding element of x, it does this by using values of U and already calculated elements of x
+- Returns the results of x
+
+### lu_solve(A, b)
+Results in y = Ax
+- Takes the matrix A and vector b input
+- Performs forward substitution with L to calculate y
+- Performs backward substitution with U to calculate the final solution x
+- Returns the result of x
+
+## Solve linear program using Simplex 
+Matrix form: initial simplex tableau
+Find which variable in the first iteration will become a basic variable (most negative)
+The largest coefficients in original objective function!
+*This column becomes pivot column
+
+$$
+\begin{eqnarray}
+\textrm{max } && 18X_1 +  12.5X_2 \\
+\textrm{subject to } && X_1  + X_2 \leq 20 \\
+&& X_1 \leq 12 \\
+&& X_2 \leq 16 \\
+&& X_1, X_2 \geq 0
+\end{eqnarray}
+$$
+![simplex_1](https://github.com/leakydishes/advanced_algorithms/assets/79079577/6ba26e45-8657-427f-905e-50c102dac3ab)
+
+![simplex_2](https://github.com/leakydishes/advanced_algorithms/assets/79079577/ddc93416-148e-4c71-a502-62d499b8bf7f)
+
+![simplex_3](https://github.com/leakydishes/advanced_algorithms/assets/79079577/96e3cca1-6f22-4a50-a7f2-7cc6f02de3a7)
+
+![simplex_4](https://github.com/leakydishes/advanced_algorithms/assets/79079577/d045bd39-1281-4a82-b401-0b6421d24d0d)
+
+![simplex_5](https://github.com/leakydishes/advanced_algorithms/assets/79079577/3bf80c31-d6f6-4c8e-b314-e49d0d60266d)
+
+![simplex_6](https://github.com/leakydishes/advanced_algorithms/assets/79079577/370cfe3e-ef8a-408f-a6a8-660ad126f29f)
+
+![simplex_7](https://github.com/leakydishes/advanced_algorithms/assets/79079577/6248bc1e-4591-4d16-9b68-ceea0cfa59b4)
