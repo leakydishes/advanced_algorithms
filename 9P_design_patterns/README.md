@@ -17,9 +17,6 @@
 - The feasible region is the shaded areas where all constrains are satisfied, any point of this region represents a combination of  and 
 - The level curves (dashed lines) are the objective function values at different levels, the higher the level the greater the objective function values.
 - The optimal solution is the point where the feasible region and highest-level curve touches/ intersects. 
-
-### Optimal solution: 
-- It is in the feasible region near 20 and 30 ( ) and between 40 and 60 
 - The feasible region is bounded by constraints 
 
 $$
